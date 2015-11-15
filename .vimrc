@@ -48,14 +48,15 @@ set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 set number
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set autoindent
 set smartindent
 set list
+set clipboard=unnamed,autoselect
 
 if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -76,6 +77,10 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 filetype plugin indent on
+
+" パイソンのインデント
+autocmd FileType python setl tabstop=4
+autocmd FileType python setl shiftwidth=4
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
