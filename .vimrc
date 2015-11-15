@@ -55,7 +55,6 @@ set smartindent
 set list
 set clipboard=unnamed,autoselect
 
-
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
