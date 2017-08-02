@@ -3,7 +3,6 @@ autocmd GUIEnter * set transparency=190
 
 " ビジュアルベルの無効化
 set t_vb=
-" 折り返し時に表示行単位での移動できるようにする
 
 " カラースキーム gvimrcに必要
 syntax on
