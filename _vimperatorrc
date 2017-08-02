@@ -6,3 +6,5 @@ highlight Hint font-family: Arial; font-size: 16px; font-weight: bold; text-shad
 highlight HintElem color: gray; background-color: #a1e4e6;
 highlight HintActive color: black; background-color: #ff8700;
 
+" commandモードでIMEオフ
+style! -name=commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
