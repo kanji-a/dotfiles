@@ -1,0 +1,21 @@
+" 透過
+autocmd GUIEnter * set transparency=190
+
+" ビジュアルベルの無効化
+set t_vb=
+" 折り返し時に表示行単位での移動できるようにする
+
+" カラースキーム gvimrcに必要
+syntax on
+colorscheme molokai
+set t_Co=256
+
+" フォント
+set guifont=MeiryoKe_Gothic:h10
+set guifontwide=MeiryoKe_Gothic:h10
+set rop=type:directx
+
+" メニューの文字化け防止
+source $VIMRUNTIME/delmenu.vim
+set langmenu=ja_jp.utf-8
+source $VIMRUNTIME/menu.vim
