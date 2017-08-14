@@ -1,13 +1,4 @@
-runtime! debian.vim
-
-syntax on
-
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
+" setting
 "文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
@@ -59,9 +50,14 @@ syntax on
 colorscheme molokai
 set t_Co=256
 
+" フォント
+set guifont=MeiryoKe_Gothic:h10
+set guifontwide=MeiryoKe_Gothic:h10
+set rop=type:directx
+
 " Tab系
 " 不可視文字を可視化(タブが「?-」と表示される)
-set list listchars=tab:\?\-
+set list listchars=tab:\?\-,trail:-
 " Tab文字を半角スペースにする
 set expandtab
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
@@ -87,52 +83,30 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" deinの設定
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+" dein-----------------------------------------------------------
 
-call dein#begin(expand('~/.vim/dein'))
+if &compatible
+  set nocompatible
+endif
+set runtimepath+=$HOME\.vim\bundles\
+" set runtimepath+={path to dein.vim directory}
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/unite.vim')
-call dein#add('fuenor/im_control.vim')
-call dein#add('thinca/vim-quickrun')
-call dein#add('itchyny/lightline.vim')
-call dein#add('tomasr/molokai')
+if dein#load_state('$HOME\.vim\')
+" if dein#load_state({path to plugin base path directory})
+  call dein#begin('$HOME\.vim\')
+"   call dein#begin({path to plugin base path directory})
 
-call dein#end()
+  call dein#add('$HOME\.vim\bundles\')
+"  call dein#add({path to dein.vim directory})
+  call dein#add('Shougo/neocomplete.vim')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('itchyny/lightline.vim')
 
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-
-" パイソンのインデント
-filetype plugin on
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl expandtab tabstop=2 shiftwidth=2 softtabstop=2
-
-" Quickfix
-autocmd QuickfixCmdPost *grep* cwindow
-
-" QuickRunの設定
-let g:quickrun_config = {
-\   "_" : {
-\       "outputter/buffer/split" : ":botright",
-\       "outputter/buffer/close_on_empty" : 1
-\   },
-\}
-
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
+  call dein#end()
+  call dein#save_state()
 endif
 
-" fcitx
+filetype plugin indent on
+syntax enable
 
-" 「日本語入力固定モード」の動作設定
-let IM_CtrlMode = 6
-" 「日本語入力固定モード」切替キー
-inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
-
-" <ESC>押下後のIM切替開始までの反応が遅い場合はttimeoutlenを短く設定してみてください(ミリ秒)
-set timeout timeoutlen=3000 ttimeoutlen=100
+" ---------------------------------------------------------------
