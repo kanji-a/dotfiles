@@ -47,7 +47,6 @@ set display=lastline
 set pumheight=10
 " カラースキーム
 syntax on
-colorscheme molokai
 set t_Co=256
 
 " フォント
@@ -85,22 +84,32 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " dein-----------------------------------------------------------
 
-if &compatible
-  set nocompatible
-endif
-set runtimepath+=$HOME\.vim\bundles\
-" set runtimepath+={path to dein.vim directory}
+" プラグインが実際にインストールされるディレクトリ
+let s:dein_dir = expand('~/.cache/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-if dein#load_state('$HOME\.vim\')
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+if dein#load_state(s:dein_dir)
 " if dein#load_state({path to plugin base path directory})
-  call dein#begin('$HOME\.vim\')
+  call dein#begin(s:dein_dir)
 "   call dein#begin({path to plugin base path directory})
 
-  call dein#add('$HOME\.vim\bundles\')
+  call dein#add(s:dein_dir)
 "  call dein#add({path to dein.vim directory})
+  call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/unite.vim')
   call dein#add('itchyny/lightline.vim')
+  call dein#add('tomasr/molokai')
+"  colorscheme molokai
 
   call dein#end()
   call dein#save_state()
