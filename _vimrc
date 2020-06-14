@@ -1,84 +1,84 @@
 " setting
-"�����R�[�h��UFT-8�ɐݒ�
+"文字コードをUFT-8に設定
 set fenc=utf-8
-" �o�b�N�A�b�v�t�@�C�������Ȃ�
+" バックアップファイルを作らない
 set nobackup
-" �X���b�v�t�@�C�������Ȃ�
+" スワップファイルを作らない
 set noswapfile
-" �ҏW���̃t�@�C�����ύX���ꂽ�玩���œǂݒ���
+" 編集中のファイルが変更されたら自動で読み直す
 set autoread
-" �o�b�t�@���ҏW���ł����̑��̃t�@�C�����J����悤��
+" バッファが編集中でもその他のファイルを開けるように
 set hidden
-" ���͒��̃R�}���h���X�e�[�^�X�ɕ\������
+" 入力中のコマンドをステータスに表示する
 set showcmd
 set noundofile
 
 
-" �����ڌn
-" �s�ԍ���\��
+" 見た目系
+" 行番号を表示
 set number
-" ���݂̍s�������\��
+" 現在の行を強調表示
 set cursorline
-" ���݂̍s�������\���i�c�j
+" 現在の行を強調表示（縦）
 " set cursorcolumn
-" �s����1������܂ŃJ�[�\�����ړ��ł���悤��
+" 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
-" �C���f���g�̓X�}�[�g�C���f���g
+" インデントはスマートインデント
 set smartindent
-" �r�[�v��������
+" ビープ音を可視化
 set visualbell
-" ���ʓ��͎��̑Ή����銇�ʂ�\��
+" 括弧入力時の対応する括弧を表示
 set showmatch
 set matchtime=1
-" �X�e�[�^�X���C������ɕ\��
+" ステータスラインを常に表示
 set laststatus=2
-" �R�}���h���C���̕⊮
+" コマンドラインの補完
 set wildmode=list:longest
-" �܂�Ԃ����ɕ\���s�P�ʂł̈ړ��ł���悤�ɂ���
+" 折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
-" �S�p�����p�̐ݒ�
+" 全角文字用の設定
 set ambiwidth=double
-" Y���s���܂Ń����N�ɕύX
+" Yを行末までヤンクに変更
 nnoremap Y y$
-" �����s���܂肽���܂Ȃ�
+" 長い行も折りたたまない
 set display=lastline
-" �ۊǂ̌�␔�𐧌�
+" 保管の候補数を制限
 set pumheight=10
-" �J���[�X�L�[��
+" カラースキーム
 syntax on
 colorscheme molokai
 set t_Co=256
 
-" �t�H���g
+" フォント
 set guifont=MeiryoKe_Gothic:h10
 set guifontwide=MeiryoKe_Gothic:h10
 set rop=type:directx
 
-" Tab�n
-" �s������������(�^�u���u?-�v�ƕ\�������)
+" Tab系
+" 不可視文字を可視化(タブが「?-」と表示される)
 set list listchars=tab:\?\-
-" Tab�����𔼊p�X�y�[�X�ɂ���
+" Tab文字を半角スペースにする
 set expandtab
-" �s���ȊO��Tab�����̕\�����i�X�y�[�X�������j
+" 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=2
-" �s���ł�Tab�����̕\����
+" 行頭でのTab文字の表示幅
 set shiftwidth=2
-" �������W�X�^�ɓ���f�[�^��*���W�X�^�ɂ������B
+" 無名レジスタに入るデータを*レジスタにも入れる。
 set clipboard+=unnamed
-" ��`�I���ŕ������Ȃ��Ă��E�֐i�߂�
+" 矩形選択で文字がなくても右へ進める
 set virtualedit=block
 
-" �����n
-" ���������񂪏������̏ꍇ�͑啶������������ʂȂ���������
+" 検索系
+" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set ignorecase
-" ����������ɑ啶�����܂܂�Ă���ꍇ�͋�ʂ��Č�������
+" 検索文字列に大文字が含まれている場合は区別して検索する
 set smartcase
-" ������������͎��ɏ����Ώە�����Ƀq�b�g������
+" 検索文字列入力時に順次対象文字列にヒットさせる
 set incsearch
-" �������ɍŌ�܂ōs������ŏ��ɖ߂�
+" 検索時に最後まで行ったら最初に戻る
 set wrapscan
-" ��������n�C���C�g�\��
+" 検索語をハイライト表示
 set hlsearch
-" ESC�A�łŃn�C���C�g����
+" ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
