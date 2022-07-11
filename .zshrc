@@ -16,8 +16,8 @@ alias oj-test-python='oj t -c "python3 main.py"'
 bindkey -v
 export EDITOR='vim'
 export PATH=$PATH:"/usr/local/lib/python3.9/site-packages/atcoder"
-# setopt hist_ignore_all_dups
-# setopt share_history
+setopt hist_ignore_all_dups
+setopt share_history
 . $HOME/.asdf/asdf.sh
 
 # peco
