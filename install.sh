@@ -17,3 +17,6 @@ for f in .??*; do
     # シンボリックリンクを貼る
     ln -snfv ${PWD}/"$f" ~/
 done
+
+# Neovimの設定ファイル
+ln -snfv ${PWD}/nvim ~/
