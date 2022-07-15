@@ -19,4 +19,4 @@ for f in .??*; do
 done
 
 # Neovimの設定ファイル
-ln -snfv ${PWD}/nvim ~/
+ln -snfv ${PWD}/nvim ~/.config/
