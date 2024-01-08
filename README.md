@@ -1,10 +1,11 @@
-# neovimについて
+# README
 
-## 設定ファイル
+- リンク作成: `stow -t ~ -v .`
+- リンク削除: `stow -t ~ -v -D .`
 
-置き場所は`~/.config/nvim/init.vim`
+## neovimについて
 
-## dein
+### dein
 
 ```bash
 mkdir -p ~/.cache/dein
