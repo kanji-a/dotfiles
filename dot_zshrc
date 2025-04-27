@@ -30,26 +30,17 @@ bindkey '^]' peco-src
 # NeoVimをデフォルトエディタにする
 export EDITOR=nvim
 # asdfを使用する
-. $HOME/.asdf/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # Linuxbrewに必要
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Starship起動
 eval "$(starship init zsh)"
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# zinit setup
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
-# 色々なコマンド補完ができるようになる
-zinit light zsh-users/zsh-completions
+# Sheldon 読み込み
+eval "$(sheldon source)"
 # completeコマンドを使うために必要
 autoload bashcompinit && bashcompinit
 # 補完機能compsys有効化
 autoload -Uz compinit && compinit
-# 履歴やファイル・ディレクトリの補完機能から推測されたコマンドが薄字で出る
-zinit light zsh-users/zsh-autosuggestions
-# 打ったコマンドにシンタックスハイライトがつく 必ず最後に書くこと
-zinit light zsh-users/zsh-syntax-highlighting
 
