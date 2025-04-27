@@ -1,7 +1,6 @@
 # README
 
-- リンク作成: `stow -t ~ -v .`
-- リンク削除: `stow -t ~ -v -D .`
+chezmoi で管理する
 
 ## neovimについて
 
