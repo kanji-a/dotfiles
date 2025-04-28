@@ -36,7 +36,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Starship起動
 eval "$(starship init zsh)"
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 # Sheldon 読み込み
 eval "$(sheldon source)"
 # completeコマンドを使うために必要
