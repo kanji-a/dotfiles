@@ -25,3 +25,4 @@ opt.listchars = "tab:▸-"
 opt.incsearch = true
 opt.wrapscan = true
 opt.hlsearch = true
+opt.spelllang = { "en", "cjk" }
