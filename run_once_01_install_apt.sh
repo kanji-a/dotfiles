@@ -6,4 +6,6 @@ sudo apt install -y \
   unzip \
   vlc \
   nautilus-dropbox \
-  mcomix
+  mcomix \
+  xsel
+
