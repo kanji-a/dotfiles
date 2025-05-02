@@ -35,10 +35,12 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Starship起動
 eval "$(starship init zsh)"
-# fzf
-source <(fzf --zsh)
 # Sheldon 読み込み
 eval "$(sheldon source)"
+# fzf 有効化
+# zsh-vi-mode とコマンドが競合するので後に実行されるようにする
+# https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#execute-extra-commands
+zvm_after_init_commands+=('source <(fzf --zsh)')
 # completeコマンドを使うために必要
 autoload bashcompinit && bashcompinit
 # 補完機能compsys有効化
