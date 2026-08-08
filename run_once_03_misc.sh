@@ -20,3 +20,6 @@ fi
 sudo mkdir -p /mnt/WDS100T2B0C-EC
 sudo mkdir -p /mnt/HD-AC10TW
 sudo mkdir -p /mnt/HDCA-U1.0K
+
+# brewのncduをsudoから使えるようにする(sudoのsecure_pathに/usr/local/binが含まれるため)
+sudo ln -sf "$(brew --prefix)/bin/ncdu" /usr/local/bin/ncdu
