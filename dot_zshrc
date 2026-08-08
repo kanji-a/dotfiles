@@ -10,17 +10,6 @@ export SAVEHIST=100000
 setopt hist_ignore_all_dups
 # 履歴を別タブでも共有
 setopt share_history
-# pecoでgitのフォルダを選べるようにする
-function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N peco-src
-bindkey '^]' peco-src
 # NeoVimをデフォルトエディタにする
 export EDITOR=nvim
 # asdfを使用する
@@ -34,6 +23,8 @@ eval "$(sheldon source)"
 # fzf 有効化
 # zsh-vi-mode とコマンドが競合するので後に実行されるようにする
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#execute-extra-commands
+# ghqで管理してるリポジトリをAlt-Cで検索してcdする
+export FZF_ALT_C_COMMAND='ghq list --full-path'
 zvm_after_init_commands+=('source <(fzf --zsh)')
 # completeコマンドを使うために必要
 autoload bashcompinit && bashcompinit
