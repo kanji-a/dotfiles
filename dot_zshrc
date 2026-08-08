@@ -20,11 +20,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 # Sheldon 読み込み
 eval "$(sheldon source)"
-# fzf 有効化
-# zsh-vi-mode とコマンドが競合するので後に実行されるようにする
-# https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#execute-extra-commands
 # ghqで管理してるリポジトリをAlt-Cで検索してcdする
 export FZF_ALT_C_COMMAND='ghq list --full-path'
+# fzf有効化: zsh-vi-modeと競合するため後に実行 (https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#execute-extra-commands)
 zvm_after_init_commands+=('source <(fzf --zsh)')
 # completeコマンドを使うために必要
 autoload bashcompinit && bashcompinit
