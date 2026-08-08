@@ -30,3 +30,5 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 # zsh-vi-mode のエスケープキーの割当
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+# rmの代わりにgomiを使ってシステムのtrashに入れる
+alias rm=gomi
