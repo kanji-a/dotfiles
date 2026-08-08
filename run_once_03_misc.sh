@@ -9,11 +9,12 @@ if ls $HOME/.local/share/fonts/HackGen_NF_* > /dev/null 2>&1
 then
   echo "HackGen_NF はインストール済です"
 else
-  curl -sLJO https://github.com/yuru7/HackGen/releases/download/v2.10.0/HackGen_NF_v2.10.0.zip
-  unzip HackGen_NF_v2.10.0.zip
+  tmpdir=$(mktemp -d)
+  curl -sLJo "$tmpdir/HackGen_NF_v2.10.0.zip" https://github.com/yuru7/HackGen/releases/download/v2.10.0/HackGen_NF_v2.10.0.zip
+  unzip "$tmpdir/HackGen_NF_v2.10.0.zip" -d "$tmpdir"
   mkdir -p $HOME/.local/share/fonts
-  mv HackGen_NF_v2.10.0 $HOME/.local/share/fonts
-  rm HackGen_NF_v2.10.0.zip
+  mv "$tmpdir/HackGen_NF_v2.10.0" $HOME/.local/share/fonts
+  rm -rf "$tmpdir"
 fi
 
 # 外付けドライブマウントポイント作成
