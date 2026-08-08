@@ -1,9 +1,3 @@
-# foobar2000
-alias foobar2000='wine  ~/.wine/drive_c/Program\ Files/foobar2000/foobar2000.exe'
-# 競プロ用UTツール
-alias oj-test-python='oj t -c "python3 main.py"'
-# atcoderライブラリ
-export PATH=$PATH:"/usr/local/lib/python3.9/site-packages/atcoder"
 # シェルのキー操作をvim化
 bindkey -v
 # 履歴を使う
