@@ -11,12 +11,12 @@ then
 else
   curl -sLJO https://github.com/yuru7/HackGen/releases/download/v2.10.0/HackGen_NF_v2.10.0.zip
   unzip HackGen_NF_v2.10.0.zip
-  mkdir $HOME/.local/share/fonts
+  mkdir -p $HOME/.local/share/fonts
   mv HackGen_NF_v2.10.0 $HOME/.local/share/fonts
   rm HackGen_NF_v2.10.0.zip
 fi
 
 # 外付けドライブマウントポイント作成
-sudo mkdir /mnt/WDS100T2B0C-EC
-sudo mkdir /mnt/HD-AC10TW
-sudo mkdir /mnt/HDCA-U1.0K
+sudo mkdir -p /mnt/WDS100T2B0C-EC
+sudo mkdir -p /mnt/HD-AC10TW
+sudo mkdir -p /mnt/HDCA-U1.0K
