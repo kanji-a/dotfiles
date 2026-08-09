@@ -16,5 +16,4 @@ brew "sheldon"
 brew "starship"
 brew "tree"
 brew "unar"
-brew "xsel"
 
