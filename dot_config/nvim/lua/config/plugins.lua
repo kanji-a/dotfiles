@@ -1,5 +1,5 @@
 vim.pack.add({
-  "https://github.com/kylechui/nvim-surround",
+  "https://github.com/echasnovski/mini.surround",
 })
 
-require("nvim-surround").setup()
+require("mini.surround").setup()
